@@ -1,48 +1,82 @@
 # Guitar Tabs PWA
 
-This project is a full-stack Node.js/Express and React application configured as a Progressive Web App (PWA).
+A mobile-first Progressive Web App for reading and managing guitar song tabs with chords and lyrics.
 
-## Project Structure
+## Features
+
+- **Song Library**: Store and organize your personal collection of songs
+- **Chord Display**: Clean mobile-optimized chord and lyrics rendering
+- **Offline Support**: Works offline with cached songs
+- **PWA Installation**: Install as a native app on mobile devices
+- **Search & Filter**: Find songs by title or artist
+- **ChordPro Import**: Add songs using simple chord annotation format
+
+## Tech Stack
+
+- **Frontend**: TypeScript, HTML5, CSS3
+- **Build Tool**: Vite
+- **Storage**: IndexedDB (browser-based)
+- **PWA**: Service Worker, Web App Manifest
+
+## Development
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm
+
+### Setup
+
+1. Clone the repository
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start development server:
+
+   ```bash
+   npm run dev
+   ```
+
+   Open http://localhost:3000
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+
+## Usage
+
+### Adding Songs
+
+1. Click "Add song" button
+2. Enter title, artist, and content
+3. Use ChordPro format: `[G]When you were here before`
+4. Save to add to your library
+
+### Viewing Songs
+
+- Select a song from the list to view chords and lyrics
+- Chords appear above the corresponding lyrics
+- Optimized for mobile reading
+
+### PWA Features
+
+- **Install**: Click "Install App" when prompted on mobile
+- **Offline**: Songs are cached and available offline
+- **Home Screen**: Appears as native app icon
+
+## ChordPro Format
+
+Simple bracketed syntax for chords:
 
 ```
-guitar-tabs-pwa/
-├── backend/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── config/
-│   ├── middlewares/
-│   ├── server.js
-│   └── package.json
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── App.js
-│   │   ├── index.js
-│   │   └── serviceWorker.js
-│   ├── public/
-│   ├── package.json
-├── database/
-│   ├── schema.sql
-│   └── seed.js
-└── .gitignore
+[G]When you were here before [B]couldn't look you in the eye
+[C]You float like a feather [G]in a beautiful world
 ```
 
-## Getting Started
+## License
 
-### Backend
-1. Navigate to the `backend` folder.
-2. Run `npm install` to install the required packages.
-3. Start the server using `node server.js`.
-
-### Frontend
-1. Navigate to the `frontend` folder.
-2. Run `npm install` to install the required packages.
-3. Start the application using `npm start`.
-
-## Database Schema
-- The database schema can be found in the `database/schema.sql`. Adjust according to your database type.
-
-## Documentation
-- Additional documentation will be added as the project progresses.
+MIT License

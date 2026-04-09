@@ -1,0 +1,24 @@
+{
+  "name": "guitar-tabs-pwa",
+  "version": "1.0.0",
+  "description": "A mobile-first PWA for reading guitar song tabs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "pwa",
+    "guitar",
+    "tabs",
+    "mobile"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0",
+    "vite-plugin-pwa": "^1.2.0"
+  }
+}

@@ -1,0 +1,61 @@
+[
+  {
+    "id": "creep",
+    "title": "Creep",
+    "artist": "Radiohead",
+    "content": [
+      [
+        {
+          "chord": "G",
+          "text": "When you were here before,"
+        }
+      ],
+      [
+        { "chord": null, "text": "couldn't look you in the" },
+        { "chord": "B", "text": "eyes" },
+        { "chord": "C", "text": "You're just like an" },
+        { "chord": "G", "text": "angel Your skin makes me cry" }
+      ],
+      [
+        { "chord": "C", "text": "You float like a feather" },
+        { "chord": "G", "text": "In a beautiful world" }
+      ],
+      [{ "chord": "Em", "text": "I wish I was special" }],
+      [{ "chord": "G", "text": "You're so very special" }],
+      [
+        { "chord": "C", "text": "But I'm a creep" },
+        { "chord": "G", "text": "I'm a weirdo" }
+      ],
+      [{ "chord": "Am", "text": "What the hell am I doing here?" }],
+      [{ "chord": "F", "text": "I don't belong here" }]
+    ]
+  },
+  {
+    "id": "wonderwall",
+    "title": "Wonderwall",
+    "artist": "Oasis",
+    "content": [
+      [
+        { "chord": "Em7", "text": "Today" },
+        { "chord": null, "text": "is gonna be the day" }
+      ],
+      [
+        { "chord": "G", "text": "That" },
+        { "chord": null, "text": "they're gonna throw it back to you" }
+      ],
+      [
+        { "chord": "Dsus4", "text": "By now" },
+        { "chord": null, "text": "you should've somehow" },
+        { "chord": "A7sus4", "text": "realized what you gotta do" }
+      ],
+      [
+        { "chord": "Em7", "text": "I don't believe" },
+        { "chord": null, "text": "that anybody" }
+      ],
+      [
+        { "chord": "G", "text": "feels" },
+        { "chord": null, "text": "the way I do about you now" }
+      ]
+    ]
+  }
+]

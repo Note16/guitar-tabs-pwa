@@ -1,0 +1,312 @@
+:root {
+  color-scheme: light;
+  --bg: #f2f2f8;
+  --surface: #ffffff;
+  --surface-strong: rgb(218, 218, 218);
+  --text: #1c1c24;
+  --muted: #6e6e7a;
+  --accent: #4d6dfa;
+  --border: #d4d4e0;
+  --radius: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(77, 109, 250, 0.12), transparent 30%),
+    var(--bg);
+  color: var(--text);
+}
+
+body {
+  padding: 16px;
+}
+
+.app-shell {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.offline-indicator {
+  margin-top: 8px;
+  color: #8f2e2e;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+}
+
+.button-secondary {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+main {
+  display: grid;
+  gap: 18px;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 20px;
+  box-shadow: 0 18px 40px rgba(47, 55, 77, 0.07);
+}
+
+.song-list-panel {
+  min-height: 220px;
+}
+
+.song-list {
+  display: grid;
+  gap: 12px;
+}
+
+.song-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid var(--surface-strong);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.song-card:hover,
+.song-card.active {
+  background: var(--surface-strong);
+  transform: translateY(-1px);
+}
+
+.song-card h3,
+.song-card p {
+  margin: 0;
+}
+
+.song-card h3 {
+  font-size: 1rem;
+}
+
+.song-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.song-view-panel {
+  min-height: 60px;
+}
+
+.song-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.song-artist {
+  margin: 0 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.song-header h2 {
+  margin: 0;
+  font-size: 1.55rem;
+}
+
+.song-content {
+  font-family: monospace;
+}
+
+.placeholder {
+  margin: 0;
+  color: var(--muted);
+}
+
+.line {
+  font-size: 0.9rem;
+}
+
+/* remove?
+.segment {
+}
+ */
+.chord:not(:empty) {
+  font-weight: 700;
+  background: var(--surface-strong);
+  border-radius: 4px;
+  position: absolute;
+  padding: 1px 3px;
+  margin: -9px 1px 0px 0px;
+}
+
+.lyric {
+  line-height: 2.6;
+}
+.lyric:empty::after {
+  content: "\00a0";
+  visibility: hidden;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 12px;
+  }
+  .panel {
+    padding: 18px 10px;
+  }
+  h2 {
+    margin: 0px 0px 10px 0px;
+  }
+  .song-card {
+    padding: 14px;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: var(--surface);
+  padding: 20px;
+  border-radius: var(--radius);
+  max-width: 500px;
+  width: 90%;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-content label {
+  font-weight: bold;
+}
+
+.modal-content input,
+.modal-content textarea {
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.modal-content button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modal-content button[type="submit"] {
+  background: var(--accent);
+  color: white;
+}
+
+.modal-content button[type="button"] {
+  background: var(--surface-strong);
+}
+
+.song-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.edit-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.edit-btn:hover {
+  background: rgba(77, 109, 250, 0.1);
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #d32f2f;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.delete-btn:hover {
+  background: rgba(211, 47, 47, 0.1);
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}

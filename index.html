@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Guitar Tabs</title>
+</head>
+
+<body>
+    <div class="app-shell">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">Guitar Tabs</p>
+                <h1>My Song List</h1>
+                <div id="offline-indicator" class="offline-indicator hidden">Offline - Using
+                    cached content</div>
+            </div>
+            <div>
+                <button id="btn-install" class="button-secondary hidden">Install App</button>
+                <button id="btn-add" class="button-secondary">Add song</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="panel song-list-panel">
+                <input type="text" id="search-input" placeholder="Search songs..." class="search-input">
+                <div id="songList" class="song-list"></div>
+            </section>
+
+            <section class="panel song-view-panel hidden">
+                <div class="song-header">
+                    <div>
+                        <p id="songArtist" class="song-artist">Artist</p>
+                        <h2 id="songTitle">Select a song</h2>
+                    </div>
+                    <button id="btn-back" class="button-secondary" type="button">
+                        Back to songs
+                    </button>
+                </div>
+
+                <div id="songContent" class="song-content">
+                    <p class="placeholder">Choose a song from the list to view chords and lyrics.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="song-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Add New Song</h3>
+            <form id="song-form">
+                <label for="song-title">Title:</label>
+                <input type="text" id="song-title" required>
+                <label for="song-artist">Artist:</label>
+                <input type="text" id="song-artist" required>
+                <label for="song-content-input">Content (ChordPro format):</label>
+                <textarea id="song-content-input" rows="10"
+                    placeholder="[G]When you were here before [B]couldn't look you in the eye"></textarea>
+                <button type="submit">Add Song</button>
+                <button type="button" id="song-cancel">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
