@@ -27,8 +27,13 @@
   .chord:has(+ .chord),
   .chord:has(+ .chord) ~ .chord,
   .chord:only-of-type {
-    position: inherit;
+    position: relative;
     margin: 0px 8px 0px 0px;
+  }
+
+  .line:has(.chord + .lyric ~ .chord) .chord:has(+ .chord),
+  .line:has(.chord + .lyric ~ .chord) .chord:has(+ .chord) ~ .chord {
+    top: -20px;
   }
 
   .lyric {

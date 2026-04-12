@@ -1,17 +1,9 @@
 import { initPWA } from "../components/pwa.js";
-
 import { renderSongList } from "../components/song-list.js";
 import { initSearch } from "../components/song-search.js";
 import { initModal, showModal } from "../components/song-model.js";
 import { initOfflineIndicator } from "../components/offline-indicator.js";
-import {
-  deleteSong,
-  getLastSelectedSong,
-  getSongById,
-  getSongs,
-  setLastSelectedSong,
-  setSearchQuery,
-} from "../services/songs-service.js";
+import { getLastSelectedSong, getSongs } from "../services/songs-service.js";
 import { renderSong } from "../components/song.js";
 import { togglePanels } from "../components/panels.js";
 
