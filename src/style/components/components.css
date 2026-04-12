@@ -1,0 +1,157 @@
+@layer components {
+  /* Buttons */
+  .button-secondary {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    padding: 10px 12px;
+    border-radius: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* Song Card */
+  .song-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    border: 1px solid var(--surface-strong);
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .song-card:hover,
+  .song-card.active {
+    background: var(--surface-strong);
+    transform: translateY(-1px);
+  }
+
+  .song-card h3,
+  .song-card p {
+    margin: 0;
+  }
+
+  .song-card h3 {
+    font-size: 1rem;
+  }
+
+  .song-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  /* Song Actions */
+  .song-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .edit-btn {
+    background: none;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+
+  .edit-btn:hover {
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+  }
+
+  .delete-btn {
+    background: none;
+    border: none;
+    color: var(--error);
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+
+  .delete-btn:hover {
+    background: color-mix(in srgb, var(--error) 10%, transparent);
+  }
+
+  /* Modal */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--modal-overlay);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    background: var(--surface);
+    padding: 20px;
+    border-radius: var(--radius);
+    max-width: 500px;
+    width: 90%;
+  }
+
+  .modal-content h3 {
+    margin-top: 0;
+  }
+
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal-content label {
+    font-weight: bold;
+  }
+
+  .modal-content input,
+  .modal-content textarea {
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  .modal-content button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .modal-content button[type="submit"] {
+    background: var(--accent);
+    color: white;
+  }
+
+  .modal-content button[type="button"] {
+    background: var(--surface-strong);
+  }
+
+  /* Status Indicators */
+  .offline-indicator {
+    margin-top: 8px;
+    color: var(--error-light);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 1rem;
+  }
+}

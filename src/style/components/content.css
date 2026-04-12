@@ -1,0 +1,42 @@
+@layer components {
+  .song-content {
+    font-family: monospace;
+  }
+
+  .placeholder {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  /* Song Display */
+  .line {
+    font-size: 0.9rem;
+  }
+
+  .chord {
+    font-weight: 700;
+    background: var(--chord-bg);
+    color: var(--chord-text);
+    border-radius: 4px;
+    padding: 1px 3px;
+    margin: -9px 1px 0px 0px;
+    font-size: 0.75rem;
+    position: absolute;
+  }
+
+  .chord:has(+ .chord),
+  .chord:has(+ .chord) ~ .chord,
+  .chord:only-of-type {
+    position: inherit;
+    margin: 0px 8px 0px 0px;
+  }
+
+  .lyric {
+    line-height: 2.6;
+  }
+
+  .lyric:empty::after {
+    content: "\00a0";
+    visibility: hidden;
+  }
+}

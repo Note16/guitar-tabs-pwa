@@ -1,0 +1,23 @@
+@layer utilities {
+  .hidden {
+    display: none !important;
+  }
+
+  @media (max-width: 640px) {
+    body {
+      padding: 12px;
+    }
+
+    .panel {
+      padding: 18px 10px;
+    }
+
+    h2 {
+      margin: 0px 0px 10px 0px;
+    }
+
+    .song-card {
+      padding: 14px;
+    }
+  }
+}

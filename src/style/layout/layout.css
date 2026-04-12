@@ -1,0 +1,64 @@
+@layer layout {
+  .app-shell {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .eyebrow {
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  main {
+    display: grid;
+    gap: 18px;
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 18px 40px rgba(47, 55, 77, 0.07);
+  }
+
+  .song-list-panel {
+    min-height: 220px;
+  }
+
+  .song-view-panel {
+    min-height: 60px;
+  }
+
+  .song-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+
+  .song-list {
+    display: grid;
+    gap: 12px;
+  }
+
+  .song-artist {
+    margin: 0 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+}
