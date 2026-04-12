@@ -42,7 +42,12 @@ export function parseChordPro(text: string): Segment[][] {
 export function songToChordPro(song: { content: Segment[][] }): string {
   return song.content
     .map((line) =>
-      line.map((segment) => `[${segment.chord || ""}]${segment.text}`).join(""),
+      line
+        .map(
+          (segment) =>
+            `${segment.chord ? `[${segment.chord}]` : ""}${segment.text}`,
+        )
+        .join(""),
     )
     .join("\n");
 }

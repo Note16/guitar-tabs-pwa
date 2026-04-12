@@ -175,17 +175,20 @@ main {
   font-size: 0.9rem;
 }
 
-/* remove?
-.segment {
-}
- */
-.chord:not(:empty) {
+.chord {
   font-weight: 700;
   background: var(--surface-strong);
   border-radius: 4px;
-  position: absolute;
   padding: 1px 3px;
   margin: -9px 1px 0px 0px;
+  font-size: 0.75rem;
+  position: absolute;
+}
+.chord:has(+ .chord),
+.chord:has(+ .chord) ~ .chord,
+.chord:only-of-type {
+  position: inherit;
+  margin: 0px 8px 0px 0px;
 }
 
 .lyric {

@@ -1,22 +1,17 @@
-import { Song } from "../../types.js";
+import {
+  getSongById,
+  getSongs,
+  removeSong,
+  setLastSelectedSong,
+} from "../services/songs-service.js";
+import { togglePanels } from "./panels.js";
+import { showModal } from "./song-model.js";
 import { renderSong } from "./song.js";
 
 const songList = document.getElementById("songList") as HTMLDivElement;
 
-export function updateFiltered(songs: Song[], query: string): Song[] {
-  return songs.filter(
-    (song) =>
-      song.title.toLowerCase().includes(query.toLowerCase()) ||
-      song.artist.toLowerCase().includes(query.toLowerCase()),
-  );
-}
-
-export function renderSongList(
-  songs: Song[],
-  onSelect: (id: string) => void,
-  onEdit: (id: string) => void,
-  onDelete: (id: string) => void,
-): void {
+export async function renderSongList(): Promise<void> {
+  const songs = await getSongs();
   songList.innerHTML = songs
     .map((song) => {
       return `
@@ -34,7 +29,6 @@ export function renderSongList(
     })
     .join("");
 
-  // Add event listeners
   document.querySelectorAll(".song-card").forEach((button) => {
     button.addEventListener("click", (e) => {
       if (
@@ -42,7 +36,17 @@ export function renderSongList(
         !(e.target as HTMLElement).classList.contains("delete-btn")
       ) {
         const songId = (button as HTMLButtonElement).dataset.id!;
-        onSelect(songId);
+        const song = getSongById(songId);
+        if (!song) {
+          alert("Song not found");
+          return;
+        }
+
+        togglePanels();
+        setLastSelectedSong(songId);
+        renderSong(song);
+        history.pushState({ isSongView: true }, "", `#song-${songId}`);
+        renderSongList();
       }
     });
   });
@@ -50,24 +54,25 @@ export function renderSongList(
   document.querySelectorAll(".edit-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
-      const id = (btn as HTMLButtonElement).dataset.id!;
-      onEdit(id);
+      const songId = (btn as HTMLButtonElement).dataset.id!;
+      const song = getSongById(songId);
+      showModal(true, song);
     });
   });
 
   document.querySelectorAll(".delete-btn").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
+    btn.addEventListener("click", async (e) => {
       e.stopPropagation();
-      const id = (btn as HTMLButtonElement).dataset.id!;
-      onDelete(id);
+      const songId = (btn as HTMLButtonElement).dataset.id!;
+
+      if (confirm("Delete this song?")) {
+        try {
+          await removeSong(songId);
+          renderSongList();
+        } catch (error) {
+          console.error("Failed to delete song:", error);
+        }
+      }
     });
   });
-}
-
-export function selectSong(songId: string, songs: Song[]): Song | null {
-  const song = songs.find((item) => item.id === songId);
-  if (song) {
-    renderSong(song);
-  }
-  return song || null;
 }

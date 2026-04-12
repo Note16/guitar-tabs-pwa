@@ -1,6 +1,9 @@
+const offlineIndicator = document.getElementById(
+  "offline-indicator",
+) as HTMLDivElement;
+
 export function initOfflineIndicator(): void {
   // Handle offline/online indicators
-  const offlineIndicator = document.getElementById("offline-indicator");
   if (offlineIndicator) {
     window.addEventListener("online", () => {
       offlineIndicator.classList.add("hidden");

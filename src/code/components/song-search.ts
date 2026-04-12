@@ -1,8 +1,12 @@
+import { setSearchQuery } from "../services/songs-service";
+import { renderSongList } from "./song-list";
+
 const searchInput = document.getElementById("search-input") as HTMLInputElement;
 
-export function initSearch(onSearch: (query: string) => void): void {
+export function initSearch(): void {
   searchInput.addEventListener("input", () => {
-    onSearch(searchInput.value);
+    setSearchQuery(searchInput.value);
+    renderSongList();
   });
 }
 
