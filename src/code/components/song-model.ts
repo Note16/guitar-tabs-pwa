@@ -36,7 +36,8 @@ export function initModal(): void {
   });
 
   cancelBtn.addEventListener("click", () => {
-    hideModal();
+    if (document.referrer.indexOf(location.host) > 0) history.back();
+    else hideModal();
   });
 }
 
@@ -53,8 +54,11 @@ export function showModal(isEditing: boolean, song?: Song): void {
     (
       document.getElementById("song-content-input") as HTMLTextAreaElement
     ).value = songToChordPro(song);
+
+    history.pushState({ action: "edit-modal" }, "", `#${song.id}*edit`);
   } else {
     form.reset();
+    history.pushState({ action: "show-modal" }, "", "");
   }
 }
 

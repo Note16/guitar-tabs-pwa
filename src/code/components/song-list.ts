@@ -2,7 +2,6 @@ import {
   getSongById,
   getSongs,
   removeSong,
-  setLastSelectedSong,
 } from "../services/songs-service.js";
 import { togglePanels } from "./panels.js";
 import { showModal } from "./song-model.js";
@@ -29,7 +28,7 @@ export async function renderSongList(): Promise<void> {
     })
     .join("");
 
-  document.querySelectorAll(".song-card").forEach((button) => {
+  songList.querySelectorAll(".song-card").forEach((button) => {
     button.addEventListener("click", (e) => {
       if (
         !(e.target as HTMLElement).classList.contains("edit-btn") &&
@@ -43,15 +42,13 @@ export async function renderSongList(): Promise<void> {
         }
 
         togglePanels();
-        setLastSelectedSong(songId);
         renderSong(song);
-        history.pushState({ isSongView: true }, "", `#song-${songId}`);
-        renderSongList();
+        history.pushState({ action: "render-song" }, "", `#${song.id}`);
       }
     });
   });
 
-  document.querySelectorAll(".edit-btn").forEach((btn) => {
+  songList.querySelectorAll(".edit-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
       const songId = (btn as HTMLButtonElement).dataset.id!;
@@ -60,7 +57,7 @@ export async function renderSongList(): Promise<void> {
     });
   });
 
-  document.querySelectorAll(".delete-btn").forEach((btn) => {
+  songList.querySelectorAll(".delete-btn").forEach((btn) => {
     btn.addEventListener("click", async (e) => {
       e.stopPropagation();
       const songId = (btn as HTMLButtonElement).dataset.id!;

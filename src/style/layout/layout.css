@@ -12,6 +12,11 @@
     margin-bottom: 20px;
   }
 
+  .topbar h1 a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   .eyebrow {
     margin: 0 0 8px;
     text-transform: uppercase;
@@ -42,11 +47,12 @@
   }
 
   .song-header {
+    margin-bottom: 18px;
+  }
+  .song-header-topbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 18px;
   }
 
   .song-list {

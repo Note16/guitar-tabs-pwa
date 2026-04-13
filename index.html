@@ -12,7 +12,9 @@
         <header class="topbar">
             <div>
                 <p class="eyebrow">Guitar Tabs</p>
-                <h1>My Song List</h1>
+                <h1>
+                    <a href="/">My Song List</a>
+                </h1>
                 <div id="offline-indicator" class="offline-indicator hidden">Offline - Using
                     cached content</div>
             </div>
@@ -30,18 +32,13 @@
 
             <section class="panel song-view-panel hidden">
                 <div class="song-header">
-                    <div>
+                    <div class="song-header-topbar">
                         <p id="songArtist" class="song-artist">Artist</p>
-                        <h2 id="songTitle">Select a song</h2>
-                    </div>
-                    <div>
-                        <button id="btn-edit" class="button-secondary" type="button">
+                        <button id="btn-edit" class="edit-btn" type="button">
                             Edit song
                         </button>
-                        <button id="btn-back" class="button-secondary" type="button">
-                            Back to songs
-                        </button>
                     </div>
+                    <h2 id="songTitle">Select a song</h2>
                 </div>
 
                 <div id="songContent" class="song-content">

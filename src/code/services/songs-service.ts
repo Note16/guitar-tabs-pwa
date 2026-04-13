@@ -2,7 +2,6 @@ import { Song } from "../../types.js";
 import { initDB, loadSongs, saveSong, deleteSong } from "../adapters/db";
 import sampleSongs from "../../data/sampleSongs.json";
 
-const STORAGE_KEY = "guitar-tabs-last-selected-song";
 const _songs: Song[] = [];
 let _searchQuery: string = "";
 
@@ -32,19 +31,6 @@ export async function getSongs(): Promise<Song[]> {
 
 export function getSongById(id: string): Song | undefined {
   return _songs.find((song) => song.id === id);
-}
-
-export function getLastSelectedSong(): Song | undefined {
-  const songId = localStorage.getItem(STORAGE_KEY);
-  return songId ? getSongById(songId) : undefined;
-}
-
-export function setLastSelectedSong(songId: string | null): void {
-  if (songId) {
-    localStorage.setItem(STORAGE_KEY, songId);
-  } else {
-    localStorage.removeItem(STORAGE_KEY);
-  }
 }
 
 export function setSearchQuery(query: string): void {

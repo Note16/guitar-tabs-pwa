@@ -6,9 +6,18 @@ const songArtist = document.getElementById(
   "songArtist",
 ) as HTMLParagraphElement;
 const songContent = document.getElementById("songContent") as HTMLDivElement;
+let song: Song | null = null;
 const btnEdit = document.getElementById("btn-edit") as HTMLButtonElement;
 
-export function renderSong(song: Song): void {
+btnEdit.addEventListener("click", (e) => {
+  e.stopPropagation();
+  if (!song) return;
+  showModal(true, song);
+});
+
+export function renderSong(newSong: Song): void {
+  song = newSong;
+
   if (!song) {
     songTitle.textContent = "No song selected";
     songArtist.textContent = "";
@@ -30,9 +39,4 @@ export function renderSong(song: Song): void {
       return `<div class="line">${segments}<br/></div>`;
     })
     .join("");
-
-  btnEdit.addEventListener("click", (e) => {
-    e.stopPropagation();
-    showModal(true, song);
-  });
 }
