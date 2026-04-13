@@ -167,4 +167,32 @@
     margin-bottom: 16px;
     font-size: 1rem;
   }
+
+  /* Footer */
+  .footer {
+    position: fixed;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Autoscroll*/
+  .autoscroll {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    padding: 5px;
+  }
+
+  .autoscroll button {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    padding: 3px 10px;
+    cursor: pointer;
+  }
+
+  .autoscroll #scroll-start {
+    margin-left: 10px;
+  }
 }

@@ -5,7 +5,8 @@ import { initModal, showModal } from "../components/song-model.js";
 import { initOfflineIndicator } from "../components/offline-indicator.js";
 import { getSongs } from "../services/songs-service.js";
 import { initRouter } from "../services/router.js";
-import { InitFontScaler } from "../components/font-scaler.js";
+import { initFontScaler } from "../components/font-scaler.js";
+import { initAutoScroller } from "../components/auto-scroller.js";
 
 const addBtn = document.getElementById("btn-add") as HTMLButtonElement;
 
@@ -24,7 +25,8 @@ async function initApp(): Promise<void> {
     initRouter();
 
     renderSongList();
-    InitFontScaler();
+    initFontScaler();
+    initAutoScroller();
 
     console.log("app initialized");
   } catch (error) {

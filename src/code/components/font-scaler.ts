@@ -1,5 +1,5 @@
-const fontPlusBtn = document.getElementById("font+");
-const fontMinBtn = document.getElementById("font-");
+const fontPlusBtn = document.getElementById("font+") as HTMLButtonElement;
+const fontMinBtn = document.getElementById("font-") as HTMLButtonElement;
 
 let fontSizes: { [id: string]: number } = {};
 
@@ -26,12 +26,11 @@ function scaleFont(selector: string, amount: number) {
 }
 
 export function reloadFontSize() {
-  console.log("hmm");
   scaleFont(".lyric", 0);
   scaleFont(".chord", 0);
 }
 
-export function InitFontScaler() {
+export function initFontScaler() {
   const scaleAmountInPX = 1;
 
   fontPlusBtn?.addEventListener("click", () => {
