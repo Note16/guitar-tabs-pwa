@@ -1,4 +1,5 @@
 import { Song } from "../../types";
+import { reloadFontSize } from "./font-scaler";
 import { showModal } from "./song-model";
 
 const songTitle = document.getElementById("songTitle") as HTMLHeadingElement;
@@ -39,4 +40,6 @@ export function renderSong(newSong: Song): void {
       return `<div class="line">${segments}<br/></div>`;
     })
     .join("");
+
+  reloadFontSize();
 }
