@@ -195,4 +195,7 @@
   .autoscroll #scroll-start {
     margin-left: 10px;
   }
+  .autoscroll #scroll-speed {
+    margin-right: 10px;
+  }
 }
