@@ -34,3 +34,4 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist/          # This tells the action to ONLY upload the dist folder
         server-dir: ./  # The destination path on your FTP server
+        delete-remote-files: true
