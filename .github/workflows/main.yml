@@ -17,7 +17,7 @@ jobs:
     - name: 🟢 Setup Node.js
       uses: actions/setup-node@v6
       with:
-        node-version: '22'
+        node-version: 'latest'
         cache: 'npm'
 
     - name: 📦 Install dependencies
@@ -27,7 +27,7 @@ jobs:
       run: npm run build
 
     - name: 📂 Sync files to server
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.6
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
