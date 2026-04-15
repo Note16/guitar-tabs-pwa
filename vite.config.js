@@ -1,31 +1,22 @@
 import { defineConfig } from "vite";
-import { VitePWA } from "vite-plugin-pwa";
+import { resolve } from "path";
 
 export default defineConfig({
-  plugins: [
-    VitePWA({
-      strategies: "generateSW",
-      manifest: {
-        name: "Guitar Tabs PWA",
-        short_name: "Guitar Tabs",
-        description: "A mobile-first PWA for reading guitar song tabs",
-        start_url: "/",
-        display: "standalone",
-        background_color: "#f2f2f8",
-        theme_color: "#4d6dfa",
-        icons: [
-          {
-            src: "/icon.png",
-            sizes: "192x192",
-            type: "image/png",
-          },
-        ],
-      },
-    }),
-  ],
+  plugins: [],
   build: {
     outDir: "dist",
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, "index.html"),
+        sw: resolve(__dirname, "src/service-worker.ts"),
+      },
+      output: {
+        entryFileNames: (chunkInfo) => {
+          return chunkInfo.name === "sw" ? "sw.js" : "assets/[name]-[hash].js";
+        },
+      },
+    },
   },
   server: {
     host: true,

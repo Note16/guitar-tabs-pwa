@@ -1,0 +1,16 @@
+{
+  "name": "Guitar Tabs PWA",
+  "short_name": "Guitar Tabs",
+  "description": "A mobile-first PWA for reading guitar song tabs",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

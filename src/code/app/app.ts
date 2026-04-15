@@ -21,14 +21,12 @@ async function initApp(): Promise<void> {
     initSearch();
     initModal();
     initOfflineIndicator();
-    initPWA();
     initRouter();
-
-    renderSongList();
     initFontScaler();
     initAutoScroller();
+    initPWA();
 
-    console.log("app initialized");
+    renderSongList();
   } catch (error) {
     console.error("Failed to initialize app:", error);
   }
