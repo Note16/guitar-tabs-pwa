@@ -12,15 +12,11 @@
 
   /* font-size*/
   .font-size-buttons {
-    margin-top: 10px;
     float: right;
   }
-  .font-size-buttons button {
-    border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--text);
-    padding: 3px 10px;
-    cursor: pointer;
+  .font-size-buttons .button-secondary {
+    padding: 8px 14px;
+    border-radius: 0;
   }
 
   /* Song Card */

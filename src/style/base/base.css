@@ -21,12 +21,12 @@
 
   h1 {
     margin: 0;
-    font-size: clamp(1.8rem, 4vw, 2.75rem);
+    font-size: clamp(1.7rem, 4vw, 2rem);
   }
 
   h2 {
     margin: 0;
-    font-size: 1.55rem;
+    font-size: 1.3rem;
   }
 
   h3 {

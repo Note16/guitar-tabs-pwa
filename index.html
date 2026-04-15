@@ -11,21 +11,20 @@
     <div class="app-shell">
         <header class="topbar">
             <div>
-                <p class="eyebrow">Guitar Tabs</p>
                 <h1>
-                    <a href="/">My Song List</a>
+                    <a href="/">Guitar Tabs</a>
                 </h1>
                 <div id="offline-indicator" class="offline-indicator hidden">Offline - Using
                     cached content</div>
             </div>
             <div>
-                <div>
+                <div class="btn-bar">
                     <button id="btn-install" class="button-secondary hidden">Install App</button>
                     <button id="btn-add" class="button-secondary">Add song</button>
                 </div>
-                <div class="font-size-buttons">
-                    <button id="font-">-</button>
-                    <button id="font+">+</button>
+                <div class="font-size-buttons hidden">
+                    <button id="font-" class="button-secondary">-</button>
+                    <button id="font+" class="button-secondary">+</button>
                 </div>
             </div>
         </header>
@@ -75,7 +74,7 @@
 
 
     <div class="footer">
-        <div class="autoscroll">
+        <div class="autoscroll hidden">
             <span id="scroll-speed">0</span>
             <button id="scroll-">-</button>
             <button id="scroll+">+</button>

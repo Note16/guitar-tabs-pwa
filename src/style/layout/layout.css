@@ -9,22 +9,15 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 16px;
-    margin-bottom: 20px;
+    margin: 5px 0 10px;
+    min-height: 40px;
   }
 
   .topbar h1 a {
     text-decoration: none;
-    color: inherit;
+    color: var(--title);
+    letter-spacing: 0.05em;
   }
-
-  .eyebrow {
-    margin: 0 0 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--muted);
-    font-size: 0.85rem;
-  }
-
   main {
     display: grid;
     gap: 18px;
@@ -47,7 +40,7 @@
   }
 
   .song-header {
-    margin-bottom: 18px;
+    margin-bottom: 6px;
   }
   .song-header-topbar {
     display: flex;
