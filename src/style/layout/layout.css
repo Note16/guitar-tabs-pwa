@@ -37,6 +37,7 @@
 
   .song-view-panel {
     min-height: 60px;
+    padding-bottom: 40px;
   }
 
   .song-header {
