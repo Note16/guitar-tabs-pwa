@@ -22,7 +22,7 @@ export function initAutoScroller() {
     if (scrolldelay) {
       clearTimeout(scrolldelay);
       scrolldelay = null;
-      scrollStartBtn.innerText = "Start";
+      scrollStartBtn.innerText = "Start autoplay";
     } else {
       function pageScroll() {
         window.scrollBy(0, 1);

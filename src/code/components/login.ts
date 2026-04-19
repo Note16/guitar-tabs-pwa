@@ -25,6 +25,7 @@ export function initLogin(): void {
     if (name) {
       setWelcomeMessage(name);
       toggleButtons();
+      renderSongList(true);
     }
   });
 
@@ -56,9 +57,8 @@ async function FormSubmit(data: LoginRequest): Promise<void> {
     const response = await Login(data);
     toggleLoginPanel();
     toggleButtons();
-    toggleAddButton();
     setWelcomeMessage(response?.user!);
-    renderSongList();
+    renderSongList(true);
   } catch (error) {
     console.error("Failed to login:", error);
     errorDiv.innerText = "Failed to log in";

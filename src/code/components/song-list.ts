@@ -3,16 +3,14 @@ import {
   getSongs,
   removeSong,
 } from "../services/songs-service.js";
-import { isLoggedIn } from "./login.js";
 import { togglePanels } from "./panels.js";
 import { showModal } from "./song-model.js";
 import { renderSong } from "./song.js";
 
 const songList = document.getElementById("songList") as HTMLDivElement;
 
-export async function renderSongList(): Promise<void> {
+export async function renderSongList(editable?: boolean): Promise<void> {
   const songs = await getSongs();
-  const isLoggedin = await isLoggedIn();
 
   songList.innerHTML = songs
     .map((song) => {
@@ -22,7 +20,7 @@ export async function renderSongList(): Promise<void> {
           <h3>${song.title}</h3>
           <p>${song.artist}</p>
         </div>
-        <div class="song-actions${isLoggedin ? "" : " hidden"}">
+        <div class="song-actions ${editable ? "" : " hidden"}">
           <button class="edit-btn" data-id="${song.id}">Edit</button>
           <button class="delete-btn" data-id="${song.id}">Delete</button>
         </div>
