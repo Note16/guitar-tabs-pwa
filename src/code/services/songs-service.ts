@@ -1,6 +1,17 @@
-import { Song } from "../../types.js";
-import { initDB, loadSongs, saveSong, deleteSong } from "../adapters/db";
-import sampleSongs from "../../data/sampleSongs.json";
+import { AddSongRequest, Song } from "../../types.js";
+import {
+  initIndexedDB,
+  deleteSong as idbDeletesong,
+  saveSong as idbSaveSong,
+  loadSongs as idbGetSong,
+} from "../repositories/indexed-db.js";
+import {
+  deleteSong as apiDeleteSong,
+  updateSong as apiUpdateSong,
+  getSongs as apiGetSongs,
+  createSong as postApiSong,
+} from "../repositories/songs-api.js";
+import { isOffline } from "../components/offline-indicator.js";
 
 const _songs: Song[] = [];
 let _searchQuery: string = "";
@@ -18,14 +29,19 @@ export async function getSongs(): Promise<Song[]> {
     return _songs;
   }
 
-  await initDB();
-  _songs.push(...(await loadSongs()));
+  await initIndexedDB();
+  const offlineSongs = await idbGetSong();
+  if (isOffline()) {
+    _songs.push(...offlineSongs);
+  } else {
+    const onlineSongs = await apiGetSongs();
+    _songs.push(...onlineSongs);
 
-  if (_songs.length === 0) {
-    _songs.push(...sampleSongs);
-    await Promise.all(_songs.map((song) => saveSong(song)));
+    if (offlineSongs != onlineSongs) {
+      offlineSongs.every((song) => idbDeletesong(song.id));
+      onlineSongs.every((song) => idbSaveSong(song));
+    }
   }
-
   return _songs;
 }
 
@@ -38,7 +54,16 @@ export function setSearchQuery(query: string): void {
 }
 
 export async function updateSong(song: Song): Promise<void> {
-  await saveSong(song);
+  if (!isOffline()) {
+    await apiUpdateSong({
+      id: song.id,
+      artist: song.artist,
+      title: song.title,
+      content: song.content,
+    });
+  }
+
+  await idbSaveSong(song);
   const index = _songs.findIndex((s) => s.id === song.id);
   if (index !== -1) {
     _songs[index] = song;
@@ -46,18 +71,29 @@ export async function updateSong(song: Song): Promise<void> {
 }
 
 export async function removeSong(id: string): Promise<void> {
-  await deleteSong(id);
+  if (!isOffline()) {
+    await apiDeleteSong(id);
+  }
+
+  await idbDeletesong(id);
   const index = _songs.findIndex((s) => s.id === id);
   if (index !== -1) {
     _songs.splice(index, 1);
   }
 }
 
-export async function addSong(song: Song): Promise<void> {
-  if (_songs.some((s) => s.id === song.id)) {
-    alert("A song with this title already exists");
-    return;
+export async function addSong(song: AddSongRequest): Promise<void> {
+  let id = Date.now().toString();
+  if (!isOffline()) {
+    const response = await postApiSong({
+      title: song.title,
+      artist: song.artist,
+      content: song.content,
+    });
+    id = response?.id!;
   }
-  await saveSong(song);
-  _songs.push(song);
+
+  const newSong = { id, ...song };
+  await idbSaveSong(newSong);
+  _songs.push(newSong);
 }

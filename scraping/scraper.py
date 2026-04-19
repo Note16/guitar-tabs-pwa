@@ -47,17 +47,25 @@ def create_output(tab):
     return output
 
 # --- EXECUTION ---
-target_url = ''
-html_source = get_ug_data(target_url)
-tav_content = parse_tab(html_source)
-result = create_output(tav_content)
+target_urls = [
+]
 
-filename = "results/" + target_url.split('/')[-1]
+for url in target_urls:
+    try:
+        html_source = get_ug_data(url)
+        tav_content = parse_tab(html_source)
+        result = create_output(tav_content)
 
-# Write to html
-#with open(filename + ".html", "w", encoding="utf-8") as f:
-#        f.write(html_source)
+        filename = "results/" + url.split('/')[-1]
 
-# Write to file
-with open(filename + ".txt", "w", encoding="utf-8") as f:
-        f.write(result)
+        # Write to html
+        #with open(filename + ".html", "w", encoding="utf-8") as f:
+        #        f.write(html_source)
+
+        # Write to file
+        with open(filename + ".txt", "w", encoding="utf-8") as f:
+                f.write(result)
+
+        print(f"Successfully processed: {url}")
+    except Exception as e:
+            print(f"Failed to process {url}: {e}")

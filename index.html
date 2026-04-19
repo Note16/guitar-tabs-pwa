@@ -25,19 +25,36 @@
             </div>
             <div>
                 <div class="btn-bar">
-                    <button id="btn-install" class="button-secondary hidden">Install App</button>
-                    <button id="btn-add" class="button-secondary">Add song</button>
+                    <span id="welcome-message"></span>
+                    <button id="btn-login" class="btn">Login</button>
+                    <button id="btn-logout" class="btn hidden">Logout</button>
+                    <button id="btn-install" class="btn hidden">Install App</button>
                 </div>
                 <div class="font-size-buttons hidden">
-                    <button id="font-" class="button-secondary">-</button>
-                    <button id="font+" class="button-secondary">+</button>
+                    <button id="font-" class="btn">-</button>
+                    <button id="font+" class="btn">+</button>
                 </div>
             </div>
         </header>
 
         <main>
+            <section class="panel login-panel hidden">
+                <form id="login-form">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" name="username" id="username" required>
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" required>
+                    <button type="submit" class="button">Login</button>
+                    <button id="login-cancel" class="button">Cancel</button>
+                    <div class="error"></div>
+                </form>
+            </section>
+
             <section class="panel song-list-panel">
-                <input type="text" id="search-input" placeholder="Search songs..." class="search-input">
+                <div class="search-wrapper">
+                    <input type="text" id="search-input" placeholder="Search songs..." class="search-input">
+                    <button id="btn-add" class="btn hidden">Add song</button>
+                </div>
                 <div id="songList" class="song-list"></div>
             </section>
 
@@ -45,7 +62,7 @@
                 <div class="song-header">
                     <div class="song-header-topbar">
                         <p id="songArtist" class="song-artist">Artist</p>
-                        <button id="btn-edit" class="edit-btn" type="button">
+                        <button id="btn-edit" class="edit-btn hidden" type="button">
                             Edit song
                         </button>
                     </div>
@@ -81,10 +98,11 @@
 
     <div class="footer">
         <div class="autoscroll hidden">
+            Speed
             <span id="scroll-speed">0</span>
             <button id="scroll-">-</button>
             <button id="scroll+">+</button>
-            <button id="scroll-start">Start</button>
+            <button id="scroll-start">Start autoplay</button>
         </div>
     </div>
 </body>

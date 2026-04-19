@@ -5,7 +5,7 @@
     outline: none !important;
   }
 
-  .button-secondary {
+  .btn {
     border: 1px solid var(--border);
     background: var(--surface);
     color: var(--text);
@@ -19,9 +19,47 @@
   .font-size-buttons {
     float: right;
   }
-  .font-size-buttons .button-secondary {
+  .font-size-buttons .btn {
     padding: 8px 14px;
     border-radius: 0;
+  }
+
+  /* Forms */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  form label {
+    font-weight: bold;
+  }
+
+  form input,
+  form textarea {
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  form button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  form button[type="submit"] {
+    background: var(--accent);
+    color: white;
+  }
+
+  form button[type="button"] {
+    background: var(--surface-strong);
+  }
+
+  .error {
+    color: var(--error-light);
   }
 
   /* Song Card */
@@ -119,39 +157,6 @@
     margin-top: 0;
   }
 
-  .modal-content form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .modal-content label {
-    font-weight: bold;
-  }
-
-  .modal-content input,
-  .modal-content textarea {
-    padding: 8px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-  }
-
-  .modal-content button {
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-
-  .modal-content button[type="submit"] {
-    background: var(--accent);
-    color: white;
-  }
-
-  .modal-content button[type="button"] {
-    background: var(--surface-strong);
-  }
-
   /* Status Indicators */
   .offline-indicator {
     margin-top: 8px;
@@ -160,12 +165,18 @@
     font-size: 0.9rem;
   }
 
-  .search-input {
+  .search-wrapper {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
     width: 100%;
-    padding: 8px;
+  }
+
+  .search-input {
+    flex-grow: 1;
+    padding: 8px 12px;
     border: 1px solid var(--border);
     border-radius: 8px;
-    margin-bottom: 16px;
     font-size: 1rem;
   }
 

@@ -13,7 +13,7 @@ function calculateSize(el: Element) {
 
 function scaleFont(selector: string, amount: number) {
   const elements = document.querySelectorAll<HTMLDivElement>(selector);
-  if (elements.length < 0) return;
+  if (elements.length <= 0) return;
 
   if (!fontSizes[selector]) {
     fontSizes[selector] = calculateSize(elements[0]);

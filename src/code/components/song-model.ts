@@ -1,4 +1,4 @@
-import { Song, SongFormData } from "../../types.js";
+import { AddSongRequest, Song, SongFormData } from "../../types.js";
 import { parseChordPro, songToChordPro } from "../parses/chord-pro.js";
 import { convertTabbedContent, isTabbedContent } from "../parses/convert.js";
 import { addSong, getSongById, updateSong } from "../services/songs-service.js";
@@ -53,7 +53,7 @@ export function showModal(isEditing: boolean, song?: Song): void {
       song.artist;
     (
       document.getElementById("song-content-input") as HTMLTextAreaElement
-    ).value = songToChordPro(song);
+    ).value = song.content;
 
     history.pushState({ action: "edit-modal" }, "", `#${song.id}*edit`);
   } else {
@@ -68,7 +68,7 @@ async function FormSubmit(data: SongFormData): Promise<void> {
       data.content = convertTabbedContent(data.content);
     }
 
-    const content = parseChordPro(data.content);
+    const content = songToChordPro(parseChordPro(data.content));
     if (content.length === 0) {
       alert("Invalid content format. Use [chord]text format.");
       return;
@@ -84,8 +84,7 @@ async function FormSubmit(data: SongFormData): Promise<void> {
         renderSong(song);
       }
     } else {
-      const newSong: Song = {
-        id: data.title.toLowerCase().replace(/\s+/g, "-"),
+      const newSong: AddSongRequest = {
         title: data.title,
         artist: data.artist,
         content,

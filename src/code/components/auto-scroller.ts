@@ -7,16 +7,16 @@ const scrollStartBtn = document.getElementById(
   "scroll-start",
 ) as HTMLButtonElement;
 
-let scrollSpeed = 100;
+let scrollSpeed = 160;
 let scrolldelay: number | null;
 
 function adjustSpeed(amount: number) {
   scrollSpeed += amount;
-  scrollSpeedSpan.innerText = (10 + -scrollSpeed / 10).toString();
+  scrollSpeedSpan.innerText = (16 + -scrollSpeed / 10).toString();
 }
 
 export function initAutoScroller() {
-  scrollSpeedSpan.innerText = (10 + -scrollSpeed / 10).toString();
+  scrollSpeedSpan.innerText = (16 + -scrollSpeed / 10).toString();
 
   scrollStartBtn.addEventListener("click", () => {
     if (scrolldelay) {

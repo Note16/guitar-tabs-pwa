@@ -1,3 +1,26 @@
+export interface LoginRequest {
+  username: string;
+  password: string;
+}
+
+export interface LoginResponse {
+  status: string;
+  user?: string;
+  error?: string;
+}
+
+export interface AddSongRequest {
+  title: string;
+  artist: string;
+  content: string;
+}
+
+export interface AddSongResponse {
+  message?: string;
+  id?: string;
+  error?: string;
+}
+
 export interface Segment {
   chord: string | null;
   text: string;
@@ -7,35 +30,15 @@ export interface Song {
   id: string;
   title: string;
   artist: string;
-  content: Segment[][];
+  content: string;
 }
 
 export interface SongFormData {
   title: string;
   artist: string;
-  content: string; // ChordPro format input
+  content: string;
 }
 
-export interface AppState {
-  songs: Song[];
-  filteredSongs: Song[];
-  activeSongId: string | null;
-  isEditing: boolean;
-  currentEditId: string | null;
-  searchQuery: string;
-}
-
-// DOM element types
-export interface SongCardElements {
-  card: HTMLButtonElement;
-  title: HTMLHeadingElement;
-  artist: HTMLParagraphElement;
-  actions: HTMLElement;
-  editBtn: HTMLButtonElement;
-  deleteBtn: HTMLButtonElement;
-}
-
-// PWA related types
 export interface BeforeInstallPromptEvent extends Event {
   readonly platforms: string[];
   readonly userChoice: Promise<{

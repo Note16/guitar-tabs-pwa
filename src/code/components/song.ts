@@ -1,5 +1,7 @@
 import { Song } from "../../types";
+import { parseChordPro } from "../parses/chord-pro";
 import { reloadFontSize } from "./font-scaler";
+import { isLoggedIn } from "./login";
 import { showModal } from "./song-model";
 
 const songTitle = document.getElementById("songTitle") as HTMLHeadingElement;
@@ -16,7 +18,15 @@ btnEdit.addEventListener("click", (e) => {
   showModal(true, song);
 });
 
+export function toggleEditSongButton() {
+  btnEdit.classList.toggle("hidden");
+}
+
 export function renderSong(newSong: Song): void {
+  isLoggedIn().then((flag) =>
+    flag ? btnEdit.classList.remove("hidden") : btnEdit.classList.add("hidden"),
+  );
+
   song = newSong;
 
   if (!song) {
@@ -28,7 +38,7 @@ export function renderSong(newSong: Song): void {
 
   songTitle.textContent = song.title;
   songArtist.textContent = song.artist;
-  songContent.innerHTML = song.content
+  songContent.innerHTML = parseChordPro(song.content)
     .map((line) => {
       const segments = line
         .map(

@@ -4,7 +4,7 @@ const DB_NAME = "GuitarTabsDB";
 const DB_VERSION = 1;
 let db: IDBDatabase | null = null;
 
-export function initDB(): Promise<void> {
+export function initIndexedDB(): Promise<void> {
   return new Promise((resolve, reject) => {
     const request = indexedDB.open(DB_NAME, DB_VERSION);
 

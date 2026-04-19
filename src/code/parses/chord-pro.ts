@@ -39,8 +39,8 @@ export function parseChordPro(text: string): Segment[][] {
   return content;
 }
 
-export function songToChordPro(song: { content: Segment[][] }): string {
-  return song.content
+export function songToChordPro(content: Segment[][]): string {
+  return content
     .map((line) =>
       line
         .map(

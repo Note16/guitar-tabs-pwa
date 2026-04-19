@@ -13,8 +13,12 @@ export function initOfflineIndicator(): void {
       offlineIndicator.classList.remove("hidden");
     });
 
-    if (!navigator.onLine) {
+    if (isOffline()) {
       offlineIndicator.classList.remove("hidden");
     }
   }
+}
+
+export function isOffline(): boolean {
+  return !navigator.onLine;
 }
