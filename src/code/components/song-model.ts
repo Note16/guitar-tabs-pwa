@@ -1,6 +1,7 @@
 import { AddSongRequest, Song, SongFormData } from "../../types.js";
 import { parseChordPro, songToChordPro } from "../parses/chord-pro.js";
 import { convertTabbedContent, isTabbedContent } from "../parses/convert.js";
+import { pushRouteHistory } from "../services/router.js";
 import { addSong, getSongById, updateSong } from "../services/songs-service.js";
 import { renderSongList } from "./song-list.js";
 import { renderSong } from "./song.js";
@@ -55,10 +56,10 @@ export function showModal(isEditing: boolean, song?: Song): void {
       document.getElementById("song-content-input") as HTMLTextAreaElement
     ).value = song.content;
 
-    history.pushState({ action: "edit-modal" }, "", `#${song.id}*edit`);
+    pushRouteHistory("model-edit", song.id);
   } else {
     form.reset();
-    history.pushState({ action: "show-modal" }, "", "");
+    pushRouteHistory("model", "");
   }
 }
 

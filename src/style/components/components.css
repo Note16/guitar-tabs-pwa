@@ -186,29 +186,36 @@
     position: fixed;
     bottom: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: right;
+    right: 0;
     width: 100%;
   }
 
   /* Autoscroll*/
   .autoscroll {
-    background-color: var(--surface);
-    border: 1px solid var(--border);
-    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 10px;
   }
 
   .autoscroll button {
     border: 1px solid var(--border);
     background: var(--surface);
     color: var(--text);
-    padding: 3px 10px;
+    padding: 6px 12px;
     cursor: pointer;
   }
-
-  .autoscroll #scroll-start {
-    margin-left: 10px;
+  .autoscroll-speed {
+    display: flex;
+    align-items: center;
+    padding-bottom: 8px;
   }
-  .autoscroll #scroll-speed {
-    margin-right: 10px;
+  .autoscroll-speed button {
+    border-radius: 25%;
+    margin-left: 5px;
+  }
+  .autoscroll-speed span {
+    margin-right: 5px;
   }
 }

@@ -1,3 +1,4 @@
+import { pushRouteHistory } from "../services/router.js";
 import {
   getSongById,
   getSongs,
@@ -44,7 +45,7 @@ export async function renderSongList(editable?: boolean): Promise<void> {
 
         togglePanels();
         renderSong(song);
-        history.pushState({ action: "render-song" }, "", `#${song.id}`);
+        pushRouteHistory("song", song.id);
       }
     });
   });
