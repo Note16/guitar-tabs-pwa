@@ -1,16 +1,19 @@
+import { Song } from "../../types.js";
 import { pushRouteHistory } from "../services/router.js";
 import {
   getSongById,
   getSongs,
   removeSong,
 } from "../services/songs-service.js";
+import { isLoggedIn } from "./login.js";
 import { togglePanels } from "./panels.js";
 import { showModal } from "./song-model.js";
 import { renderSong } from "./song.js";
 
 const songList = document.getElementById("songList") as HTMLDivElement;
 
-export async function renderSongList(editable?: boolean): Promise<void> {
+export async function renderSongList(): Promise<Song[]> {
+  const editable = await isLoggedIn();
   const songs = await getSongs();
 
   songList.innerHTML = songs
@@ -74,4 +77,6 @@ export async function renderSongList(editable?: boolean): Promise<void> {
       }
     });
   });
+
+  return songs;
 }

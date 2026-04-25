@@ -52,7 +52,10 @@
 
             <section class="panel song-list-panel">
                 <div class="search-wrapper">
-                    <input type="text" id="search-input" placeholder="Search songs..." class="search-input">
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search songs..." class="search-input">
+                        <span id="item-counter" class="item-counter">0</span>
+                    </div>
                     <button id="btn-add" class="btn hidden">Add song</button>
                 </div>
                 <div id="songList" class="song-list"></div>
@@ -78,14 +81,13 @@
 
     <div id="song-modal" class="modal hidden">
         <div class="modal-content">
-            <h3>Add New Song</h3>
             <form id="song-form">
                 <label for="song-title">Title:</label>
                 <input type="text" id="song-title" required>
                 <label for="song-artist">Artist:</label>
                 <input type="text" id="song-artist" required>
                 <label for="song-content-input">Content (ChordPro format):</label>
-                <textarea id="song-content-input" rows="10"
+                <textarea id="song-content-input" rows="20"
                     placeholder="[G]When you were here before [B]couldn't look you in the eye"></textarea>
                 <button type="submit">Add Song</button>
                 <button type="button" id="btn-cancel">Cancel</button>
