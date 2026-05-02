@@ -18,7 +18,10 @@ export function getChordData(chordName: string): ChordPosition[] | null {
 
   // 2. Exit if chord does not exist
   const chords = Object.values(db.chords).flatMap((c) =>
-    c.filter((x) => x.key == root),
+    c.filter((x) => {
+      const key = root == "G#" ? "Ab" : root;
+      return x.key == key;
+    }),
   );
   if (!chords) return null;
 

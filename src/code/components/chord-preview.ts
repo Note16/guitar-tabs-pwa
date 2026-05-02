@@ -130,5 +130,7 @@ function renderChord(chordName: string) {
         ],
       })
       .draw();
+  } else {
+    chordSvg.innerHTML = `<p>Chord ${chordName} could not be found in the chords database.</p>`;
   }
 }

@@ -270,6 +270,9 @@
     stroke: var(--surface-strong);
     fill: var(--surface-strong);
   }
+  #chord-svg p {
+    padding-right: 35px;
+  }
   .chord-buttons {
     padding-bottom: 15px;
   }
