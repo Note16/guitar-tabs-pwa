@@ -1,5 +1,6 @@
 import { Song } from "../../types";
 import { parseChordPro } from "../parses/chord-pro";
+import { renderChordPreview } from "./chord-preview";
 import { reloadFontSize } from "./font-scaler";
 import { isLoggedIn } from "./login";
 import { showModal } from "./song-model";
@@ -52,4 +53,5 @@ export function renderSong(newSong: Song): void {
     .join("");
 
   reloadFontSize();
+  renderChordPreview(".chord");
 }

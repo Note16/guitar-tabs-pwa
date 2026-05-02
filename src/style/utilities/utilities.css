@@ -2,6 +2,9 @@
   .hidden {
     display: none !important;
   }
+  .pointer {
+    cursor: pointer;
+  }
 
   @media (max-width: 640px) {
     body {

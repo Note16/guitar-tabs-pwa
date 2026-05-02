@@ -5,7 +5,7 @@ const songViewPanel = document.querySelector(
   ".song-view-panel",
 ) as HTMLDivElement;
 const loginPanel = document.querySelector(".login-panel") as HTMLDivElement;
-const autoScroller = document.querySelector(".autoscroll") as HTMLDivElement;
+const sidebar = document.querySelector(".sidebar") as HTMLDivElement;
 const btnBar = document.querySelector(".btn-bar") as HTMLDivElement;
 const addBtn = document.getElementById("btn-add") as HTMLButtonElement;
 const fontSizeButtons = document.querySelector(
@@ -19,7 +19,7 @@ export function toggleLoginPanel(): void {
 export function togglePanels(): void {
   songListPanel.classList.toggle("hidden");
   songViewPanel.classList.toggle("hidden");
-  autoScroller.classList.toggle("hidden");
+  sidebar.classList.toggle("hidden");
   fontSizeButtons.classList.toggle("hidden");
   btnBar.classList.toggle("hidden");
 }
