@@ -44,8 +44,7 @@ export function renderSong(newSong: Song): void {
       const segments = line
         .map(
           (segment) =>
-            `${segment.chord ? `<span class="chord${!segment.chord ? " hidden" : ""}">${segment.chord}</span>` : ""}` +
-            `${segment.text ? `<span class="lyric">${segment.text.replace(/\s/g, "&nbsp;").replace("{", "<strong>").replace("}", "</strong>")}</span>` : ""}`,
+            parseChordSegment(segment.chord) + parseTextSegment(segment.text),
         )
         .join("");
       return `<div class="line">${segments}<br/></div>`;
@@ -54,4 +53,24 @@ export function renderSong(newSong: Song): void {
 
   reloadFontSize();
   renderChordPreview(".chord");
+}
+
+function parseChordSegment(chord: string | null) {
+  if (!chord) return "";
+
+  return `<span class="chord${!chord ? " hidden" : ""}">${chord}</span>`;
+}
+
+function parseTextSegment(text: string) {
+  if (!text) return "";
+
+  if (text.indexOf("{") < 0) {
+    return text
+      .split(" ")
+      .map((word) => `<span class="lyric">${word}</span>`)
+      .join("&nbsp;");
+  }
+
+  text = text.replace("{", "<strong>").replace("}", "</strong>");
+  return `<span class="lyric">${text}</span>`;
 }

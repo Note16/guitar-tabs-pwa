@@ -63,10 +63,8 @@
     display: inline-block;
     padding-top: 1.5em;
   }
-
-  .lyric:empty::after {
-    content: "\00a0";
-    visibility: hidden;
+  .line:has(.chord + .chord):not(:has(.lyric + .chord)) .lyric {
+    padding-top: 0em;
   }
 
   @media (max-width: 640px) {
