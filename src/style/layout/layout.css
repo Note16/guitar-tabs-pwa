@@ -18,51 +18,12 @@
     color: var(--title);
     letter-spacing: 0.05em;
   }
+
   main {
     display: grid;
     gap: 18px;
   }
 
-  .panel {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 30px;
-    padding: 20px;
-    box-shadow: 0 18px 40px rgba(47, 55, 77, 0.07);
-  }
-
-  .song-list-panel {
-    min-height: 220px;
-  }
-
-  .song-view-panel {
-    min-height: 60px;
-    padding-bottom: 40px;
-  }
-
-  .song-header {
-    margin-bottom: 6px;
-  }
-  .song-header-topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .song-list {
-    display: grid;
-    gap: 12px;
-  }
-
-  .song-artist {
-    margin: 0 0 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--muted);
-    font-size: 0.8rem;
-  }
-
-  /* Footer */
   .footer {
     position: fixed;
     bottom: 10px;

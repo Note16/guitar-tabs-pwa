@@ -1,0 +1,48 @@
+@layer components {
+  /* Song Card */
+  .song-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    border: 1px solid var(--surface-strong);
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .song-card:hover,
+  .song-card.active {
+    background: var(--surface-strong);
+    transform: translateY(-1px);
+  }
+
+  .song-card h3,
+  .song-card p {
+    margin: 0;
+  }
+
+  .song-card h3 {
+    font-size: 1rem;
+  }
+
+  .song-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .song-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  @media (max-width: 640px) {
+    .song-card {
+      padding: 14px;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@layer components {
+  .song-list-panel {
+    min-height: 220px;
+  }
+  .song-list {
+    display: grid;
+    gap: 12px;
+  }
+}

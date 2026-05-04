@@ -1,0 +1,70 @@
+@layer components {
+  /* Buttons */
+  * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+    outline: none !important;
+  }
+  button {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  button:disabled {
+    border-color: var(--border);
+    background: var(--surface);
+    color: var(--text);
+    cursor: not-allowed;
+    opacity: 0.2;
+    pointer-events: none;
+  }
+
+  .btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    padding: 10px 12px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .btn.rounded {
+    border-radius: 8px;
+  }
+
+  button[type="submit"].btn {
+    border: none;
+    background: var(--accent);
+    color: white;
+  }
+
+  button[type="button"].btn {
+    background: var(--surface-strong);
+  }
+
+  .edit-btn {
+    background: none;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+
+  .edit-btn:hover {
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+  }
+
+  .delete-btn {
+    background: none;
+    border: none;
+    color: var(--error);
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+
+  .delete-btn:hover {
+    background: color-mix(in srgb, var(--error) 10%, transparent);
+  }
+}

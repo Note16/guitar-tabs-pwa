@@ -1,0 +1,68 @@
+@layer components {
+  /* Sidebar */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 10px;
+  }
+
+  .sidebar button {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+
+  /* Autoscroll*/
+  .autoscroll-speed {
+    display: flex;
+    align-items: center;
+    padding-bottom: 8px;
+  }
+  .autoscroll-speed button {
+    border-radius: 25%;
+    margin-left: 5px;
+  }
+  .autoscroll-speed span {
+    margin-right: 5px;
+  }
+
+  /* Chord preview*/
+  #chord-svg {
+    width: 200px;
+    position: relative;
+    right: -35px;
+    backdrop-filter: blur(1px);
+  }
+  #chord-svg line,
+  text {
+    stroke: var(--text);
+    fill: var(--text);
+  }
+
+  #chord-svg rect,
+  circle {
+    stroke: var(--muted);
+    fill: var(--muted);
+  }
+
+  #chord-svg text.finger {
+    stroke: var(--bg);
+    fill: var(--bg);
+  }
+  #chord-svg circle.open-string {
+    fill: none;
+  }
+  #chord-svg circle.fret-marker {
+    stroke: var(--surface-strong);
+    fill: var(--surface-strong);
+  }
+  #chord-svg p {
+    padding-right: 35px;
+  }
+  .chord-buttons {
+    padding-bottom: 15px;
+  }
+}

@@ -1,0 +1,15 @@
+@layer components {
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 18px 40px rgba(47, 55, 77, 0.07);
+  }
+
+  @media (max-width: 640px) {
+    .panel {
+      padding: 18px 10px;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@layer components {
+  /* Forms */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  form label {
+    font-weight: bold;
+  }
+
+  form input,
+  form textarea {
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  .error {
+    color: var(--error-light);
+  }
+}

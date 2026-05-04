@@ -1,0 +1,79 @@
+@layer components {
+  .song-view-panel {
+    min-height: 60px;
+    padding-bottom: 40px;
+  }
+
+  .song-header {
+    margin-bottom: 6px;
+  }
+  .song-header-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .song-artist {
+    margin: 0 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+
+  .song-content {
+    font-family: monospace;
+  }
+
+  .line {
+    font-size: 0.9rem;
+    padding-bottom: 0.2em;
+  }
+  /* Chords in line with only chords*/
+  .line:has(.chord):not(:has(> .lyric)) .chord {
+    top: 5px;
+  }
+
+  /* Lyrics in line with only lyrics*/
+  .line:has(.lyric):not(:has(> .chord)) .lyric {
+    padding-top: 1.5em;
+  }
+
+  .chord {
+    font-weight: 700;
+    background: var(--chord-bg);
+    color: var(--chord-text);
+    border-radius: 4px;
+    padding: 1px 3px;
+    font-size: 0.75rem;
+    position: absolute;
+    margin-top: 5px;
+  }
+
+  .chord:has(+ .chord),
+  .chord:has(+ .chord) ~ .chord,
+  .chord:only-of-type {
+    position: relative;
+    margin-right: 4px;
+    bottom: 1.5em;
+  }
+
+  .lyric {
+    display: inline-block;
+    padding-top: 1.5em;
+  }
+
+  .lyric:empty::after {
+    content: "\00a0";
+    visibility: hidden;
+  }
+
+  @media (max-width: 640px) {
+    .lyric {
+      font-size: 0.75rem;
+    }
+    .chord {
+      font-size: 0.6rem;
+    }
+  }
+}

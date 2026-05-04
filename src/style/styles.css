@@ -4,6 +4,14 @@
 @import url("./reset/reset.css");
 @import url("./base/base.css");
 @import url("./layout/layout.css");
-@import url("./components/components.css");
-@import url("./components/content.css");
+@import url("./components/generic/buttons.css");
+@import url("./components/generic/forms.css");
+@import url("./components/generic/modal.css");
+@import url("./components/generic/panel.css");
+@import url("./components/songlist/songlist.css");
+@import url("./components/songlist/songlist-card.css");
+@import url("./components/songview/songview.css");
+@import url("./components/offline-indicator.css");
+@import url("./components/search.css");
+@import url("./components/sidebar.css");
 @import url("./utilities/utilities.css");

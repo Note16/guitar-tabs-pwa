@@ -45,7 +45,7 @@ export function renderSong(newSong: Song): void {
         .map(
           (segment) =>
             `${segment.chord ? `<span class="chord${!segment.chord ? " hidden" : ""}">${segment.chord}</span>` : ""}` +
-            `${segment.text ? `<span class="lyric">${segment.text.replace("{", "<strong>").replace("}", "</strong>")}</span>` : ""}`,
+            `${segment.text ? `<span class="lyric">${segment.text.replace(/\s/g, "&nbsp;").replace("{", "<strong>").replace("}", "</strong>")}</span>` : ""}`,
         )
         .join("");
       return `<div class="line">${segments}<br/></div>`;

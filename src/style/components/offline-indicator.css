@@ -1,0 +1,9 @@
+@layer components {
+  /* Status Indicators */
+  .offline-indicator {
+    margin-top: 8px;
+    color: var(--error-light);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+}
