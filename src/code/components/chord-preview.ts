@@ -1,4 +1,4 @@
-import { FretLabelPosition, SVGuitarChord } from "svguitar";
+import { FretLabelPosition, FretMarker, SVGuitarChord } from "svguitar";
 import {
   ChordPosition,
   convertChordShape,
@@ -97,11 +97,40 @@ function displayChordPreview() {
   chordNext.disabled = chord!.currentVersion >= chord!.versions;
 }
 
+function getFretMarkers(baseFret: number) {
+  const fretMarkers: FretMarker[] = [
+    2,
+    4,
+    6,
+    8,
+    {
+      fret: 11,
+      double: true,
+    },
+  ];
+
+  return fretMarkers
+    .map((marker) => {
+      if (typeof marker === "number") {
+        return marker - baseFret;
+      }
+      return {
+        ...marker,
+        fret: marker.fret - baseFret,
+      };
+    })
+    .filter((marker) => {
+      const fretValue = typeof marker === "number" ? marker : marker.fret;
+      return fretValue >= 0;
+    });
+}
+
 function renderChord(chordName: string) {
   const chord = getCachedChord(chordName);
   if (chord) {
     const position = chord.data[chord.currentVersion];
     const shape = convertChordShape(position);
+    const fretMarkers = getFretMarkers(shape.baseFret - 1);
 
     new SVGuitarChord("#" + chordSvg.id)
       .chord({
@@ -116,18 +145,9 @@ function renderChord(chordName: string) {
         fretLabelPosition: FretLabelPosition.LEFT,
         tuningsFontSize: 28,
         barreChordRadius: 0.5,
-        fretLabelFontSize: 80,
+        fretLabelFontSize: 38,
         emptyStringIndicatorSize: 0.4,
-        fretMarkers: [
-          2,
-          4,
-          6,
-          8,
-          {
-            fret: 11,
-            double: true,
-          },
-        ],
+        fretMarkers: fretMarkers,
       })
       .draw();
   } else {

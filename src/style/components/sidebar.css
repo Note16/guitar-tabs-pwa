@@ -32,9 +32,10 @@
   /* Chord preview*/
   #chord-svg {
     width: 200px;
-    position: relative;
-    right: -35px;
+    margin-right: -30px;
+    background-color: rgb(from var(--bg) r g b / 0.6);
     backdrop-filter: blur(1px);
+    border-radius: 30px;
   }
   #chord-svg line,
   text {
