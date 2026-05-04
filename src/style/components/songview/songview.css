@@ -29,11 +29,11 @@
     font-size: 0.9rem;
     padding-bottom: 0.2em;
   }
+
   /* Chords in line with only chords*/
   .line:has(.chord):not(:has(> .lyric)) .chord {
-    top: 5px;
+    top: 0.2em;
   }
-
   /* Lyrics in line with only lyrics*/
   .line:has(.lyric):not(:has(> .chord)) .lyric {
     padding-top: 1.5em;
@@ -47,15 +47,16 @@
     padding: 1px 3px;
     font-size: 0.75rem;
     position: absolute;
-    margin-top: 5px;
+    margin-top: 0.2em;
+    vertical-align: top;
   }
 
   .chord:has(+ .chord),
   .chord:has(+ .chord) ~ .chord,
   .chord:only-of-type {
     position: relative;
-    margin-right: 4px;
-    bottom: 1.5em;
+    margin-right: 0.4em;
+    top: calc(0.2em + 1px);
   }
 
   .lyric {
